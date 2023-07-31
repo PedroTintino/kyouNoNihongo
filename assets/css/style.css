@@ -1,0 +1,126 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    background-color: aliceblue;
+}
+
+.background{
+ position: absolute;
+ bottom: 5rem;
+ right: 0;
+ padding: 2rem;
+ z-index: -1;
+}
+
+.background img{
+    height: 26rem;
+
+}
+
+.navbar{
+    padding-top: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.tittle{
+    font-size: 2.3rem;
+    font-weight: bold;
+}
+
+nav{
+    font-size: 1.8rem;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a{
+    margin-left: 1.5rem;
+}
+
+.content{
+    text-align: center;
+    padding-top: 15rem;
+}
+
+.content  p:first-child{
+    font-size: 3rem;
+}
+
+.content p{
+    margin-top: 1rem;
+    font-size: 1.8rem;
+}
+
+.content-generator{
+    margin-top: 2.5rem;
+    font-size: 2rem;
+}
+
+.content-generator select{
+    padding: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    width: 17rem;
+}
+
+.content-generator button{
+    padding: 0.8rem;
+    width: 15rem;
+    border: none;
+    background-color:rgba(27, 154, 154, 0.801);
+    cursor: pointer;
+    font-weight: 400;
+    height: 3.3rem;
+    border-radius: 0.2rem;
+}
+
+.content-generator button:hover{
+    background-color:rgba(56, 192, 192, 0.801);
+
+}
+
+.resulted-content ul li:first-child{
+    margin-bottom: 4rem;
+    font-weight: bold;
+    list-style: none;
+    font-size: 4.8rem;
+    
+}
+
+.resulted-content{
+    display: none;
+    font-size: 3rem;
+    height: 40rem;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.resulted-content .description{
+    font-size: 2rem;
+    line-height: 3rem;
+    width: 20rem;
+    
+}
+
+.resulted-content button{
+    width: 10rem;
+    height: 4rem;
+    background-color:rgba(27, 154, 154, 0.801);
+    border: transparent;
+    cursor: pointer;
+}

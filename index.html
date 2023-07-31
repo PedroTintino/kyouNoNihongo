@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://kit.fontawesome.com/f51201541f.js" crossorigin="anonymous"></script>
+    <title>Kyou no kanji</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="tittle">
+            <span>Kyou no Nihongo</span>
+        </div>
+            <nav>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Support Us</a></li>
+                </ul>
+            </nav>
+    </div>        
+    <div class="background">
+        <img src="undraw_japan_ubgk.svg">
+    </div>
+    <div class="content">
+        <p>Welcome to our <strong>Kyou no Nihongo</strong> website.</p>
+        <p>Studying japanese can be grateful and pleasure. Get started choosing what kind of structure you are about for studying today.</p>
+        <div class="content-generator">
+        <select id="content-chooser">
+            <option>Random Kanji</option>
+            <option>Verbs</option>
+            <option>Particles</option>
+        </select>
+        <button type="button" onclick="generateContent()"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+    </div>
+    <div class="resulted-content">
+        <ul id="content-list"></ul>
+        <p class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti asperiores dolor, illum recusandae cum ullam modi eos dolore quas facilis.</p>
+        <button type="button" onclick="generateContent()">New <i class="fa-solid fa-rotate-right"></i></button>
+    </div>
+    <div class="footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>    
+<script> 
+    let jsonData = []; 
+
+    async function fetchJSONData(){  
+        try {
+            const response = await axios.get('words.json');
+            jsonData = response.data;
+            console.log(jsonData);
+        } catch (e){
+            console.log('Error getting data: ', e)
+        }
+    }
+
+    function generateContent() {
+            const intro = document.querySelector('.content');
+            intro.style.display = 'none';
+            const content = document.querySelector('.resulted-content')
+            content.style.display = 'flex';
+
+            const randomIndex = Math.floor(Math.random() * jsonData.length);
+            const selectedValue = jsonData[randomIndex];
+
+            // Criar uma lista não ordenada (ul) para exibir os valores selecionados
+            const contentListElement = document.getElementById('content-list');
+            contentListElement.innerHTML = ''; // Limpar a lista antes de exibir o novo conteúdo
+
+            // Iterar sobre os atributos do objeto selecionado e adicionar cada valor a um item de lista (li)
+            for (const key in selectedValue) {
+                const value = selectedValue[key];
+                const listItem = document.createElement('li');
+                listItem.textContent = `${key}: ${value}`;
+                contentListElement.appendChild(listItem);
+            }
+        }
+    fetchJSONData();
+</script>
+</body>
+</html>
